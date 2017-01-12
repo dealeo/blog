@@ -80,7 +80,7 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    <div class="title">Laravel</div>
+                    <div class="title">Laravel blade</div>
                     <i class="fa fa-lock"></i>
                 </div>
 
