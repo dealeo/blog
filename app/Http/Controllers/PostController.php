@@ -169,12 +169,14 @@ class PostController extends Controller
     public function destroy($id)
     {
         $post = Post::find($id);
+        $post->tags()->detach();
+
         $post->delete();
 
         // Renseigner un message flash
         Session::flash('success', 'La tâche a été supprimée avec succès! ');
 
-        // Redirect with flash message to posts.show
+        // Redirect with flash message to posts.index
         return redirect()->route('posts.index');
     }
 }

@@ -9,9 +9,15 @@
             <h1>{{ $tag->name }} <small> {{ $tag->posts()->count() }} tâches</small></h1>
             <hr>
         </div>
-        <div class="col-md-2 col-md-offset-2">
-            <a href="{{ route('tags.edit', $tag->id) }}" class="btn btn-primary pull-right btn-block" style="margin-top:20px;">Editer</a>
+        <div class="col-md-2">
+            <a href="{{ route('tags.edit', $tag->id) }}" class="btn btn-primary pull-right btn-block btn-h1-spacing">Editer</a>
         </div>
+        <div class="col-md-2">
+        {{ Form::open(['route' => ['tags.destroy', $tag->id], 'method' => 'DELETE']) }}
+            {{ Form::submit('Supprimer', ['class' => 'btn btn-danger btn-block btn-h1-spacing']) }}
+        {{ Form::close() }}
+        </div>
+
     </div><!-- end of header .row -->
 
     <div class="row">

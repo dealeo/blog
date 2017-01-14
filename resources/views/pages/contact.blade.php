@@ -2,33 +2,31 @@
 
 @section('title', "Contactez-nous")
 
-
-
 @section('content')
         
     <div class="row">
         <div class="col-md-12">
             <h1>Contactez-nous</h1>
             <hr>
-            <form>
+            {{ Form::open( ['method' => 'POST', 'url' => ['contact']]) }}
                 <div class="form-group">
-                    <label for="email">Adresse email</label>
-                    <input type="text" class="form-control" id="email" placeholder="Veuillez saisir votre adresse email">
+                    {{ Form::label('email', 'Adresse email') }}
+                    {{ Form::text('email', null, array('class' => 'form-control', 'placeholder' => 'Veuillez saisir votre adresse email', 'required' => '', 'maxlength' => '255')) }}
                 </div>
 
                 <div class="form-group">
-                    <label for="subject">Sujet</label>
-                    <input type="text" class="form-control" id="subject" placeholder="Sujet">
+                    {{ Form::label('subject', 'Sujet') }}
+                    {{ Form::text('subject', null, array('class' => 'form-control', 'placeholder' => 'Veuillez saisir un sujet', 'maxlength' => '255')) }}
                 </div>
 
                 <div class="form-group">
-                    <label for="message">Message</label>
-                    <textarea class="form-control" rows="5" id="message" placeholder="Tapez votre message ici ..."></textarea>
+                    {{ Form::label('message', 'Message') }}
+                    {{ Form::textarea('message', null, array('class' => 'form-control', 'placeholder' => 'Veuillez saisir un message')) }}
                 </div>
 
                 <button type="submit" class="btn btn-success">Envoyer un message</button>
                 
-            </form>
+            {{ Form::close() }}
         </div>
     </div><!-- end of header .row -->
 
